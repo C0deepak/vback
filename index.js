@@ -2,8 +2,11 @@ const express = require('express')
 const app = express()
 const cookieParser = require('cookie-parser')
 
+var cors = require("cors");
+app.use(cors());
+
 const dotnev = require('dotenv')
-dotnev.config({path: './config.env'})
+dotnev.config({ path: './config.env' })
 
 const mongoose = require("mongoose")
 require('./database/connection')

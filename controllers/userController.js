@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 
 exports.registerUser = async (req, res, next) => {
 
-    const { name, email, address, phone, adhaarno, work, vehicleno, vehiclebrand, vehiclemodel, licenseno, licenseissuedate, licenseenddate, insuranceno, insuranceissuedate, insuranceenddate, pucno, pucissuedate, pucenddate, password } = req.body
+    const { name, email, address, phone, avatar, adhaarno, work, vehicleno, vehiclebrand, vehiclemodel, licenseno, licenseissuedate, licenseenddate, insuranceno, insuranceissuedate, insuranceenddate, pucno, pucissuedate, pucenddate, password } = req.body
 
     try {
         const userExist = await User.findOne({ email: email })
@@ -14,7 +14,7 @@ exports.registerUser = async (req, res, next) => {
             return res.status(422).json({ error: 'Email already exist!' })
         }
         const user = await User.create({
-            name, email, address, phone, adhaarno, work, vehicleno, vehiclebrand, vehiclemodel, licenseno, licenseissuedate, licenseenddate, insuranceno, insuranceissuedate, insuranceenddate, pucno, pucissuedate, pucenddate, password
+            name, email, address, phone, avatar, adhaarno, work, vehicleno, vehiclebrand, vehiclemodel, licenseno, licenseissuedate, licenseenddate, insuranceno, insuranceissuedate, insuranceenddate, pucno, pucissuedate, pucenddate, password
         })
 
         const qrSaveData = { Name: user.name, Email: user.email, Address: user.address, Phone: user.phone, VehicleNo: user.vehicleno, LicenseNo: user.licenseno, InsuranceNo: user.insuranceno, Status: user.status }

@@ -20,6 +20,9 @@ const userSchema = new mongoose.Schema({
         type: Number,
         require: [true, 'Phone Number is required']
     },
+    avatar: {
+        type: String
+    },
     adhaarno: {
         type: Number,
         required: [true, 'Adhaar Number is required']
@@ -66,6 +69,10 @@ const userSchema = new mongoose.Schema({
     insuranceenddate: {
         type: String,
         required: [true, 'Insurance end date is required']
+    },
+    pucno: {
+        type: String,
+        required: [true, 'PUC Number is required']
     },
     pucissuedate: {
         type: String,
